@@ -1,8 +1,16 @@
-import React from 'react'
+import "./ProductCard.css"
 
-const ProductCard = () => {
+const ProductCard = ({title ,price, isRed}) => {
+
   return (
-    <div>ProductCard</div>
+    <div>
+      <h1 className={isRed ? "red":"blue"}>
+        { title }
+      </h1>
+      <h3>
+        { price }
+      </h3>
+    </div>
   )
 }
 
