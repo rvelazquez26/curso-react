@@ -3,17 +3,15 @@ import ItemListContainer from "./Components/ItemListContainer/ItemListContainer.
 import { Navbar } from "./Components/Navbar/Navbar.jsx"
 import ProductCard from "./Components/ProductCard/ProductCard.jsx";
 import CardWidget from "./Components/CardWidget/CardWidget.jsx";
+import ItemCount from "./Components/ItemCount/ItemCount.jsx";
 
 function App() {
+
   return (
     <div>
       <Navbar/>
-      <CardWidget/>
       <ItemListContainer/>
-      <ProductCard title="Producto 1" price={10} isRed={true}/>
-      <ProductCard title="Producto 2" price={25} isRed={false}/>
-      <ProductCard title="Producto 3" price={45} isRed={true}/>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 }

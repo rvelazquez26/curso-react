@@ -4,10 +4,7 @@ import style from "./Navbar.module.css"
 export const Navbar = () => {
   return (
     <div className={ style.containerNavbar }>
-      <img src="https://res.cloudinary.com/dgcyvw24o/image/upload/v1724682192/jimhdbyn6wrjvtsyzvck.jpg" 
-      alt="" 
-      style={{width:"10%", objectFit:"cover"}}
-      />
+      <h3 style={{paddingLeft:50}}>logo</h3>
       <ul className={ style.list}>
         <li>Todas</li>
         <li>Urbanas</li>
