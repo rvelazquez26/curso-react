@@ -1,24 +1,29 @@
 import {useState, useEffect} from 'react'
 
-const ItemCount = () => {
+const ItemCount = ({stock, initial=1, onAdd}) => {
 
-    const [userName, setUserName] = useState("") 
+    const [contador, setContador] = useState(initial) 
 
-    useEffect(()=>{
-        const productList = new Promise((resolve, reject)=>{
-            resolve()
-        })
-    
-        productList
-        .then( (resp)=>{
-            console.log("se ejecuta porque la promesa se resolvio"); setUserName(resp)  
-        })
-        .catch( (error)=>{ console.log(error)} )
-    },[])
-  
+    const sumar = ()=> {
+        console.log(stock);
+        if(contador < stock){
+            
+            setContador( contador + 1);
+        }
+    }
+
+    const restar = () => {
+        if(contador > 1 ){
+            setContador(contador - 1)
+        }
+    }
+
     return (
     <div>
-        <h1>Item Count</h1>
+        <h1>{contador}</h1>
+        <button onClick={sumar}>Sumar</button>
+        <button onClick={restar}>Restar</button>
+        <button onClick={()=> onAdd(contador)}>Agregar al carrito</button>
     </div>
   )
 }
