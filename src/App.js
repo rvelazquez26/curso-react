@@ -1,20 +1,27 @@
-import Footer from "./Components/Footer/Footer.jsx";
 import ItemListContainer from "./Components/ItemListContainer/ItemListContainer.jsx";
 import { Navbar } from "./Components/Navbar/Navbar.jsx"
-import ProductCard from "./Components/ProductCard/ProductCard.jsx";
-import CardWidget from "./Components/CardWidget/CardWidget.jsx";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./Components/Login/Login.jsx";
+import Cart from "./Components/Cart/Cart.jsx";
+import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer.jsx";
 
 function App() {
+
   return (
-    <div>
+    <BrowserRouter>
       <Navbar/>
-      <CardWidget/>
-      <ItemListContainer/>
-      <ProductCard title="Producto 1" price={10} isRed={true}/>
-      <ProductCard title="Producto 2" price={25} isRed={false}/>
-      <ProductCard title="Producto 3" price={45} isRed={true}/>
-      <Footer/>
-    </div>
+    <Routes>
+      {/* Ruta raiz */}
+      <Route path="/" element={<ItemListContainer/>}/>      
+      <Route path="/category/:categoryName" element={<ItemListContainer/>}/>      
+      <Route path="/cart" element={<Cart/>}/>     
+      <Route path="/login" element={<Login/>}/>     
+      <Route path="/itemDetail/:id" element={<ItemDetailContainer/>}/>     
+       
+      {/* Ruta que no existe */}
+      <Route path="*" element={ <h1>Not Found</h1>}/> 
+    </Routes>
+    </BrowserRouter>
   );
 }
 
